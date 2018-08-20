@@ -7,7 +7,8 @@ class Die extends Component {
       <button
         className="Die"
         style={{ backgroundColor: this.props.locked ? "darkred" : "red" }}
-        onClick={this.props.handleClick}>
+        // anony function and pass in idx
+        onClick={() => this.props.handleClick(this.props.idx)}>
         {this.props.val}
       </button>
     )
