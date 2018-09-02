@@ -26,15 +26,24 @@ class Game extends Component {
       yahtzee: undefined,
       chance: undefined
     },
-    totalScore: 0,
     // keep track if game is over
     numOfTurns: 0
   };
-
   // added feature of having dice roll when all component is mounted
   componentDidMount() {
     this.roll();
   }
+
+  // function in order to return total score
+  totalscore = () => {
+    let total = 0;
+    let { scores } = this.state;
+
+    for (let rule in scores) {
+      if (scores[rule] !== undefined) total += scores[rule];
+    }
+    return total;
+  };
 
   roll = evt => {
     // roll dice whose indexes are in reroll
@@ -75,9 +84,9 @@ class Game extends Component {
         rollsLeft: NUM_ROLLS,
         locked: Array(NUM_DICE).fill(false),
         numOfTurns: st.numOfTurns + 1
-      }));
+      }), () => this.roll());
       // set state will run async??? issue is when I want to reroll locked dice
-      this.roll();
+      // this.roll();
     }
     // check if game is over??
     // for (let rule in this.state.scores) {
@@ -91,7 +100,7 @@ class Game extends Component {
   render() {
     return (
       // terenary to check if game is over?
-      // this.state.numOfTurns === 13 ? <div>Do you want to play again?</div> ? 
+      // this.state.numOfTurns === 13 ? <div>Do you want to play again?</div> ?
       <section>
         <Dice
           dice={this.state.dice}
@@ -107,7 +116,7 @@ class Game extends Component {
         </button>
         <Scoring doScore={this.doScore} scores={this.state.scores} />
       </section>
-    )
+    );
   }
 }
 
