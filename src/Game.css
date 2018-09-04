@@ -5,5 +5,10 @@
 }
 
 .Game-reroll:hover {
-  background-color: pink;
+  background-color: gold;
+}
+
+.total-score {
+  font-size: 1.5em;
+  color: seagreen;
 }

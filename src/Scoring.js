@@ -20,14 +20,15 @@ import {
 class Scoring extends Component {
   render() {
     const { scores, doScore } = this.props;
+    // moved this into game component
     // to get total score iterate through scores and get sum
-    let totalScore = 0;
-    for (let rule in scores) {
-      if (scores[rule] !== undefined) totalScore += scores[rule];
-    }
+    // let totalScore = 0;
+    // for (let rule in scores) {
+    //   if (scores[rule] !== undefined) totalScore += scores[rule];
+    // }
     return (
       <div className="Scoring">
-        <div>Total Score: {totalScore}</div>
+        {/* <div>Total Score: {totalScore}</div> */}
         <section className="Scoring-section">
           <h2>Upper</h2>
           <table cellSpacing="0">

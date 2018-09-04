@@ -35,7 +35,7 @@ class Game extends Component {
   }
 
   // function in order to return total score
-  totalscore = () => {
+  totalScore = () => {
     let total = 0;
     let { scores } = this.state;
 
@@ -84,6 +84,7 @@ class Game extends Component {
         rollsLeft: NUM_ROLLS,
         locked: Array(NUM_DICE).fill(false),
         numOfTurns: st.numOfTurns + 1
+        // need arrow function to roll again
       }), () => this.roll());
       // set state will run async??? issue is when I want to reroll locked dice
       // this.roll();
@@ -100,8 +101,9 @@ class Game extends Component {
   render() {
     return (
       // terenary to check if game is over?
-      // this.state.numOfTurns === 13 ? <div>Do you want to play again?</div> ?
+      // this.state.numOfTurns === 13 ? <div>Do you want to play again?</div> : button
       <section>
+        <div className="total-score">Total Score: {this.totalScore()}</div>
         <Dice
           dice={this.state.dice}
           locked={this.state.locked}

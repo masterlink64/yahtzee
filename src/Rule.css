@@ -1,4 +1,6 @@
-.Rule {}
+.Rule {
+  font-family: 'Merriweather', serif;
+}
 
 .Rule-active:hover {
   background-color: yellow;
